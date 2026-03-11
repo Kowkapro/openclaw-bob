@@ -200,7 +200,19 @@
   - [ ] Связать основного Боба с субагентом
 - [ ] Финальный тест: Боб → субагент → n8n
 
-### Блок 8 — Мультимодальность
+### Блок 8 — ClawHub: выбор и установка скиллов
+- [ ] Установить ClawHub CLI: `npm i -g clawhub`
+- [ ] Изучить каталог: `clawhub search ""` (все скиллы)
+- [ ] Категории для оценки:
+  - Memory / RAG
+  - Web search / Browser
+  - Telegram / Social media
+  - Productivity / Tasks
+  - Code / Dev tools
+- [ ] Выбрать нужные, установить: `clawhub install <skill-slug>`
+- [ ] Проверить каждый скилл в диалоге с Бобом
+
+### Блок 9 — Мультимодальность
 - [ ] **Голосовые сообщения (STT)**: подключить Whisper через polza.ai API
   - Проверить наличие Whisper-модели на polza.ai
   - Прописать транскрипцию в openclaw.json (`transcription` секция)
@@ -274,3 +286,4 @@ systemctl status openclaw
 - [ ] Tool profile = full, browser включён
 - [ ] n8n (Railway) подключён
 - [ ] Субагент n8n-оператор создан
+- [ ] ClawHub скиллы выбраны и установлены
