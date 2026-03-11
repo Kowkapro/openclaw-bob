@@ -1,0 +1,12 @@
+# Secrets — never commit
+.env
+
+# Logs
+*.log
+
+# Claude Code internal files
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
