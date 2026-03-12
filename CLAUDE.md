@@ -22,14 +22,17 @@ RULE: When discovering a bug/gotcha, add it to KNOWN ISSUES below.
 
 ## PROJECT CONTEXT
 - Project: OpenClaw — personal AI assistant in Telegram (bot name: "Боб")
-- Hosting: Beget VPS, Moscow, Ubuntu 24.04 LTS, 6GB RAM, 10GB SSD
+- Hosting: Beget VPS, Moscow, Ubuntu 24.04 LTS, 6GB RAM, 20GB SSD
 - LLM: Qwen Flash via polza.ai (OpenAI-compatible), model `qwen/qwen3.5-flash-02-23`
 - API Base URL: `https://polza.ai/api/v1`
 - Channel: Telegram (primary), bot: @botclawAi_BOT
 - Runtime: Node.js v22.22.1
 - OpenClaw: v2026.3.11
 - Process manager: nohup (systemd user services unavailable on this server)
-- Firewall: UFW (ports: 22, 80, 443)
+- Firewall: UFW (ports: 22, 80, 443; 5900 closed after VNC setup)
+- SSH key: ~/.ssh/beget_key (passwordless access configured)
+- Firefox profile: /home/openclaw/.config/mozilla/ (Google session saved)
+- Google account: jarvisbob502@gmail.com (authorized via VNC Firefox)
 
 ## SERVER PATHS
 - OpenClaw binary: `/home/openclaw/.npm-global/bin/openclaw`
@@ -50,10 +53,22 @@ RULE: When discovering a bug/gotcha, add it to KNOWN ISSUES below.
 - RULE: Do NOT create new files unless absolutely necessary.
 - RULE: NEVER put secrets (API keys, bot tokens, passwords) in code or git — use .env locally, config on server only.
 
+## VPS ACCESS (hard rules, NEVER override)
+- SSH key: `ssh -i ~/.ssh/beget_key root@85.198.84.103`
+- RULE: NEVER execute commands on VPS that affect OpenClaw (gateway, config, SOUL.md, MEMORY.md, skills) WITHOUT explicit user approval
+- RULE: Read-only commands (logs, status, pgrep, df, ls) are OK without approval
+- RULE: ALWAYS show the user the exact command BEFORE executing anything that modifies server state
+- RULE: NEVER restart, stop, or reconfigure gateway without user saying "yes" / "да" / "давай"
+- RULE: NEVER modify openclaw.json, SOUL.md, or server MEMORY.md without user approval
+- RULE: NEVER install/remove packages on VPS without user approval
+- RULE: NEVER open firewall ports without user approval
+- RULE: When using `su - openclaw -c`, ALWAYS use full path to binaries (e.g. `/home/openclaw/.npm-global/bin/openclaw`)
+
 ## SECURITY (hard rules, NEVER override)
 - NEVER commit: `.env`, API keys, bot tokens, Telegram user IDs, VPS passwords
 - NEVER put any secrets in any file tracked by git
 - Secrets live in `.env` locally (gitignored) and in openclaw.json on server only
+- SSH key (~/.ssh/beget_key) must NEVER be committed or shared
 
 ## GIT
 - Commits: short, English, descriptive
@@ -67,3 +82,8 @@ RULE: When discovering a bug/gotcha, add it to KNOWN ISSUES below.
 - `allowFrom` requires numeric Telegram User ID `"tg:123456789"` — NOT username
 - After any config change, restart gateway manually (see GATEWAY MANAGEMENT above)
 - Node.js must be v22.x
+- `/restart` in Telegram can crash gateway — always restart manually via SSH
+- npm install -g openclaw may break symlink — rm -rf old package first
+- Snap packages (chromium-browser, firefox) don't work with Xvfb — use portable binaries
+- Playwright Chromium is headless-only, no GUI in VNC — use /opt/firefox/ for GUI
+- ClawHub skills installed in workspace/skills/ but NOT recognized by OpenClaw v2026.3.11

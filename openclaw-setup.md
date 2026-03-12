@@ -3,7 +3,7 @@
 ## Обзор проекта
 
 Разворачиваем OpenClaw (open-source AI-агент, MIT) на VPS Beget с подключением к Telegram.
-Модель: DeepSeek V3.2 Exp через polza.ai (OpenAI-compatible endpoint, оплата в рублях).
+Модель: Qwen Flash через polza.ai (OpenAI-compatible endpoint, оплата в рублях).
 
 **Цель:** персональный ассистент в Telegram, знающий профессию, проекты и цели владельца.
 
@@ -18,7 +18,7 @@
 | ОС | Ubuntu 24.04 LTS |
 | RAM | 6 GB |
 | vCPU | 1–2 |
-| SSD | 10 GB |
+| SSD | 20 GB |
 | Ориентировочная стоимость | ~660 ₽/мес |
 
 ---
@@ -28,7 +28,7 @@
 **Выбор: Qwen Flash через polza.ai** (переключили с DeepSeek V3.2 для экономии)
 
 Причины отказа от локальных моделей:
-- 2GB RAM не хватает для OpenClaw + Ollama одновременно
+- 2GB RAM (начальный тариф) не хватало для OpenClaw + Ollama одновременно
 - Модели, влезающие в 2GB (1–2B параметров), дают 4k–8k контекст — ниже минимума OpenClaw (16k)
 - Качество tool calls у малых моделей нестабильное
 
@@ -72,8 +72,11 @@
 │   ├── openclaw.json        # конфигурация провайдера и каналов
 │   ├── SOUL.md              # личность и знания ассистента
 │   └── workspace/
-│       └── MEMORY.md        # факты о пользователе (RAG-память)
-└── .npm-global/bin/openclaw # бинарник
+│       ├── MEMORY.md        # факты о пользователе (RAG-память)
+│       └── skills/          # ClawHub-скиллы (не подхватываются ботом)
+├── .npm-global/bin/openclaw # бинарник (симлинк)
+├── .config/mozilla/         # Firefox-профиль с Google-сессией
+└── .chrome-profile/         # Chrome-профиль (запасной)
 ```
 
 ---
@@ -284,9 +287,9 @@ systemctl status openclaw
 
 | Статья | Цена |
 |---|---|
-| Beget VPS 6GB, Москва | ~990 ₽/мес |
+| Beget VPS 6GB 20GB SSD, Москва | ~990 ₽/мес |
 | polza.ai (Qwen Flash) | ~10–30 ₽/мес |
-| **Итого** | **~670–690 ₽/мес** |
+| **Итого** | **~1000–1020 ₽/мес** |
 
 ---
 
@@ -300,7 +303,10 @@ systemctl status openclaw
 - [x] MEMORY.md создан, RAG-память работает
 - [x] Tool profile = full
 - [x] GitHub доступ (gh CLI, Kowkapro)
-- [x] Browser-инструмент (Playwright)
+- [x] Browser-инструмент (Playwright + Firefox)
+- [x] Google-аккаунт авторизован (Firefox-профиль скопирован для openclaw)
+- [x] SSH-ключ настроен (Claude Code может подключаться к серверу напрямую)
+- [x] VNC (Xvfb + x11vnc + fluxbox) — установлен, порт 5900 закрыт после использования
 - [ ] n8n через MCP подключён
 - [ ] Субагент n8n-оператор создан
-- [~] ClawHub скиллы установлены (но не подхватываются ботом — нужно разобраться)
+- [~] ClawHub скиллы установлены (но не подхватываются ботом — несовместимы с v2026.3.11)
