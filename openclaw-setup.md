@@ -192,7 +192,13 @@
 ### Блок 7 — Инструменты и расширение
 - [ ] Переключить tool profile с `coding` на `full` в openclaw.json
 - [ ] Включить browser-инструмент (Playwright) — проверить доступность и RAM
-- [ ] Подключить n8n на Railway: добавить API URL и токен в конфиг Боба
+- [ ] **Подключить n8n через MCP** (не REST API — более надёжная архитектура):
+  - Установить `n8n-mcp` пакет на сервер: `npm i -g n8n-mcp`
+  - Получить n8n API Key: Railway n8n → Settings → n8n API → Create API key
+  - Прописать MCP сервер в конфиг OpenClaw
+  - n8n воркфлоу становятся нативными инструментами Боба
+  - Тест: Боб видит и запускает воркфлоу напрямую
+  - Ссылки: https://github.com/czlonkowski/n8n-mcp, https://github.com/leonardsellem/n8n-mcp-server
 - [ ] Создать субагента "n8n-оператор":
   - [ ] Отдельный Telegram-бот через @BotFather
   - [ ] Настроить как второй агент в OpenClaw (`openclaw agents add n8n-operator`)
@@ -208,15 +214,26 @@
 
 ### Блок 8 — ClawHub: выбор и установка скиллов
 - [ ] Установить ClawHub CLI: `npm i -g clawhub`
-- [ ] Изучить каталог: `clawhub search ""` (все скиллы)
-- [ ] Категории для оценки:
-  - Memory / RAG
-  - Web search / Browser
-  - Telegram / Social media
-  - Productivity / Tasks
-  - Code / Dev tools
-- [ ] Выбрать нужные, установить: `clawhub install <skill-slug>`
+- [ ] Приоритетные скиллы для установки:
+  - [ ] **Capability Evolver** — агент анализирует свои логи и сам улучшает промпты/стратегии
+    ```bash
+    clawhub install capability-evolver
+    ```
+  - [ ] **Summarize** — умное суммаризование текстов, документов, встреч
+    ```bash
+    clawhub install summarize
+    ```
+  - [ ] **GitHub** — управление репозиториями, PR, Issues прямо из чата
+    ```bash
+    clawhub install github
+    ```
+  - [ ] **Tavily** — AI-поиск оптимизированный для агентов (1000 запросов/мес бесплатно)
+    - Получить бесплатный API-ключ на [tavily.com](https://tavily.com)
+    ```bash
+    clawhub install tavily
+    ```
 - [ ] Проверить каждый скилл в диалоге с Бобом
+- [ ] При необходимости — доустановить по категориям: `clawhub search ""`
 
 ### Блок 9 — Мультимодальность
 - [ ] **Голосовые сообщения (STT)**: подключить Whisper через polza.ai API
