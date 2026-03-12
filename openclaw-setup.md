@@ -14,26 +14,26 @@
 | Компонент | Значение |
 |---|---|
 | Хостинг | Beget VPS |
-| Локация | Москва (Рига распродана) |
-| ОС | Ubuntu 22.04 LTS |
-| RAM | 2 GB |
+| Локация | Москва |
+| ОС | Ubuntu 24.04 LTS |
+| RAM | 6 GB |
 | vCPU | 1–2 |
-| SSD | 20 GB |
+| SSD | 10 GB |
 | Ориентировочная стоимость | ~660 ₽/мес |
 
 ---
 
 ## LLM-провайдер
 
-**Выбор: DeepSeek V3.2 Exp через polza.ai**
+**Выбор: Qwen Flash через polza.ai** (переключили с DeepSeek V3.2 для экономии)
 
 Причины отказа от локальных моделей:
 - 2GB RAM не хватает для OpenClaw + Ollama одновременно
 - Модели, влезающие в 2GB (1–2B параметров), дают 4k–8k контекст — ниже минимума OpenClaw (16k)
 - Качество tool calls у малых моделей нестабильное
 
-Причины использовать polza.ai вместо прямого DeepSeek API:
-- Оплата рублями (российские карты) — прямой DeepSeek API оплатить из РФ проблематично
+Причины использовать polza.ai вместо прямых API:
+- Оплата рублями (российские карты)
 - OpenAI-compatible API — никаких изменений кода
 - Наценка ~5% к провайдерской стоимости
 
@@ -41,12 +41,11 @@
 |---|---|
 | Провайдер | polza.ai |
 | API Base URL | `https://polza.ai/api/v1` |
-| Модель | `deepseek/deepseek-v3.2-exp` |
+| Модель | `qwen/qwen3.5-flash-02-23` |
 | Тип | OpenAI-compatible |
-| Контекст | 64k токенов |
-| Цена input | 23,32 ₽ / 1M токенов |
-| Цена output | 35,42 ₽ / 1M токенов |
-| Ориентировочные расходы | 30–100 ₽/мес |
+| contextWindow | 32768 токенов (уменьшили с 65536 для экономии) |
+| Цена input | 8,6 ₽ / 1M токенов |
+| Ориентировочные расходы | 10–30 ₽/мес |
 
 ---
 
@@ -60,7 +59,7 @@
 
 - **OpenClaw** — AI-агент (open-source, MIT)
 - **Node.js 22** — runtime (обязательная версия)
-- **systemd** — автозапуск службы
+- **nohup** — запуск gateway (systemd user services недоступны на этом сервере)
 - **UFW** — firewall (порты: 22, 80, 443)
 
 ---
@@ -70,9 +69,11 @@
 ```
 /home/openclaw/
 ├── .openclaw/
-│   ├── openclaw.json     # конфигурация провайдера и каналов
-│   └── SOUL.md           # личность и знания ассистента
-└── .local/bin/openclaw   # бинарник
+│   ├── openclaw.json        # конфигурация провайдера и каналов
+│   ├── SOUL.md              # личность и знания ассистента
+│   └── workspace/
+│       └── MEMORY.md        # факты о пользователе (RAG-память)
+└── .npm-global/bin/openclaw # бинарник
 ```
 
 ---
@@ -90,15 +91,15 @@
         "type": "openai-compatible",
         "baseUrl": "https://polza.ai/api/v1",
         "apiKey": "ТВОЙ_КЛЮЧ_ОТ_POLZA.AI",
-        "model": "deepseek/deepseek-v3.2-exp",
-        "contextWindow": 65536
+        "model": "qwen/qwen3.5-flash-02-23",
+        "contextWindow": 32768
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "polza/deepseek/deepseek-v3.2-exp"
+        "primary": "polza/qwen/qwen3.5-flash-02-23"
       }
     }
   },
@@ -129,69 +130,71 @@
 
 ## План установки
 
-### Блок 1 — Подготовка сервера (от root)
-- [ ] Арендовать VPS на Beget (Рига, Ubuntu 22.04, 2GB)
-- [ ] Подключиться по SSH: `ssh root@<IP>`
-- [ ] `apt update && apt upgrade -y`
-- [ ] Установить Node.js 22:
+### Блок 1 — Подготовка сервера (от root) ✅
+- [x] Арендовать VPS на Beget (Москва, Ubuntu 24.04, 2GB)
+- [x] Подключиться по SSH: `ssh root@<IP>`
+- [x] `apt update && apt upgrade -y`
+- [x] Установить Node.js 22:
   ```bash
   curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
   apt install -y nodejs
   node --version  # должно быть v22.x
   ```
-- [ ] Настроить UFW:
+- [x] Настроить UFW:
   ```bash
   ufw allow 22 && ufw allow 80 && ufw allow 443 && ufw enable
   ```
-- [ ] Создать пользователя: `adduser --disabled-password --gecos "" openclaw`
+- [x] Создать пользователя: `adduser --disabled-password --gecos "" openclaw`
 
-### Блок 2 — Установка OpenClaw (от пользователя openclaw)
-- [ ] `su - openclaw`
-- [ ] `curl -fsSL https://openclaw.ai/install.sh | bash`
-- [ ] Добавить в PATH:
+### Блок 2 — Установка OpenClaw (от пользователя openclaw) ✅
+- [x] `su - openclaw`
+- [x] `curl -fsSL https://openclaw.ai/install.sh | bash`
+- [x] Добавить в PATH (npm-global):
   ```bash
-  echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
+  echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
   ```
-- [ ] Проверить: `openclaw --version`
+- [x] Проверить: `openclaw --version`
 
-### Блок 3 — Получение ключей
-- [ ] Зарегистрироваться на polza.ai → создать API-ключ (оплата рублями)
-- [ ] Создать Telegram-бота через @BotFather → сохранить токен вида `123456789:ABC...`
-- [ ] Узнать свой Telegram User ID через @userinfobot → сохранить число
+### Блок 3 — Получение ключей ✅
+- [x] Зарегистрироваться на polza.ai → создать API-ключ (оплата рублями)
+- [x] Создать Telegram-бота через @BotFather → токен сохранён в openclaw.json
+- [x] Узнать свой Telegram User ID через @userinfobot → сохранён (1039905495)
 
-### Блок 4 — Онбординг и настройка конфига
-- [ ] Запустить мастер (настраивает только LLM и daemon, не Telegram):
+### Блок 4 — Онбординг и настройка конфига ✅
+- [x] Запустить мастер (настраивает только LLM, не Telegram):
   ```bash
-  openclaw onboard --install-daemon
+  openclaw onboard
   # Провайдер: OpenAI-compatible
   # URL: https://polza.ai/api/v1
-  # Модель: deepseek/deepseek-v3.2-exp
-  # Daemon: yes
+  # Модель: qwen/qwen3.5-flash-02-23
   ```
-- [ ] Вручную прописать Telegram в конфиг:
+- [x] Вручную прописать Telegram в конфиг:
   ```bash
   nano ~/.openclaw/openclaw.json
   ```
   Добавить секцию `channels` (см. раздел "Конфигурация" выше)
-- [ ] Перезапустить gateway: `openclaw gateway restart`
+- [x] Gateway запущен через nohup:
+  ```bash
+  nohup su - openclaw -c "/home/openclaw/.npm-global/bin/openclaw gateway" > /tmp/openclaw.log 2>&1 &
+  ```
 
-### Блок 5 — Проверка
-- [ ] `openclaw doctor`
-- [ ] `openclaw gateway status`
-- [ ] Написать боту в Telegram — он попросит подтвердить pairing (ввести код)
-- [ ] Подтвердить pairing → бот готов
-- [ ] При проблемах: `openclaw logs`
+### Блок 5 — Проверка ✅
+- [x] `openclaw doctor`
+- [x] `openclaw gateway status`
+- [x] Написать боту в Telegram — он попросит подтвердить pairing (ввести код)
+- [x] Подтвердить pairing → бот готов
+- [x] При проблемах: `openclaw logs`
 
 ### Блок 6 — Персонализация ✅
 - [x] Настроить `~/.openclaw/SOUL.md` (личность, профессия, стиль общения)
 - [x] Создать `MEMORY.md` с фактами о пользователе (цели, проекты, предпочтения)
-- [x] contextWindow увеличен до 65536
+- [x] contextWindow установлен в 32768 (уменьшили с 65536 для экономии)
 - [x] `openclaw gateway restart`
 - [x] Финальный тест диалога — Боб читает MEMORY.md, отвечает профессионально
 
 ### Блок 7 — Инструменты и расширение
-- [ ] Переключить tool profile с `coding` на `full` в openclaw.json
-- [ ] Включить browser-инструмент (Playwright) — проверить доступность и RAM
+- [x] Переключить tool profile с `coding` на `full` в openclaw.json
+- [x] Включить browser-инструмент (Playwright) — установлен для root и openclaw
 - [ ] **Подключить n8n через MCP** (не REST API — более надёжная архитектура):
   - Установить `n8n-mcp` пакет на сервер: `npm i -g n8n-mcp`
   - Получить n8n API Key: Railway n8n → Settings → n8n API → Create API key
@@ -205,34 +208,23 @@
   - [ ] Написать SOUL.md для субагента (роль: управление n8n, триггеры, логика)
   - [ ] Связать основного Боба с субагентом
 - [ ] Финальный тест: Боб → субагент → n8n
-- [ ] **GitHub доступ для Боба**:
-  - Создать GitHub Personal Access Token (repo + contents права)
-  - Установить `gh` CLI на сервер (`apt install gh`)
-  - Авторизовать через токен: `gh auth login`
-  - Прописать токен в SOUL.md или AGENTS.md чтобы Боб знал как использовать gh
-  - Тест: попросить Боба показать список репозиториев
+- [x] **GitHub доступ для Боба**:
+  - [x] Создать GitHub Personal Access Token (repo + admin:org права)
+  - [x] Установить `gh` CLI на сервер
+  - [x] Авторизовать: `gh auth login --with-token` (аккаунт: Kowkapro)
+  - [x] Токен прописан в MEMORY.md на сервере — Боб знает как использовать gh
+  - [x] Тест пройден: Боб видит репозитории
 
 ### Блок 8 — ClawHub: выбор и установка скиллов
-- [ ] Установить ClawHub CLI: `npm i -g clawhub`
-- [ ] Приоритетные скиллы для установки:
-  - [ ] **Capability Evolver** — агент анализирует свои логи и сам улучшает промпты/стратегии
-    ```bash
-    clawhub install capability-evolver
-    ```
-  - [ ] **Summarize** — умное суммаризование текстов, документов, встреч
-    ```bash
-    clawhub install summarize
-    ```
-  - [ ] **GitHub** — управление репозиториями, PR, Issues прямо из чата
-    ```bash
-    clawhub install github
-    ```
-  - [ ] **Tavily** — AI-поиск оптимизированный для агентов (1000 запросов/мес бесплатно)
-    - Получить бесплатный API-ключ на [tavily.com](https://tavily.com)
-    ```bash
-    clawhub install tavily
-    ```
-- [ ] Проверить каждый скилл в диалоге с Бобом
+- [x] Установить ClawHub CLI: `npm i -g clawhub`
+- [x] Приоритетные скиллы установлены:
+  - [x] **Summarize** — установлен в workspace/skills/summarize
+  - [x] **GitHub** — установлен в workspace/skills/github
+  - [x] **DuckDuckGo Search** — установлен в workspace/skills/duckduckgo-search (замена Tavily)
+  - [x] **Self-Improving Agent** — установлен в workspace/skills/self-improving-agent (замена Capability Evolver)
+  - ❌ Capability Evolver — заблокирован clawhub как malware
+  - ❌ Tavily — заблокирован VirusTotal, Brave API платный
+- [ ] Проверить каждый скилл в диалоге с Бобом (clawhub-скиллы не видны Бобу — возможно несовместимы с v2026.3.11)
 - [ ] При необходимости — доустановить по категориям: `clawhub search ""`
 
 ### Блок 9 — Мультимодальность
@@ -292,9 +284,9 @@ systemctl status openclaw
 
 | Статья | Цена |
 |---|---|
-| Beget VPS 2GB, Москва | ~660 ₽/мес |
-| polza.ai (DeepSeek V3.2 Exp) | ~30–100 ₽/мес |
-| **Итого** | **~690–760 ₽/мес** |
+| Beget VPS 6GB, Москва | ~990 ₽/мес |
+| polza.ai (Qwen Flash) | ~10–30 ₽/мес |
+| **Итого** | **~670–690 ₽/мес** |
 
 ---
 
@@ -302,11 +294,13 @@ systemctl status openclaw
 
 - [x] VPS арендован
 - [x] OpenClaw установлен
-- [x] DeepSeek подключён
+- [x] Qwen Flash подключён через polza.ai
 - [x] Telegram-бот работает
 - [x] SOUL.md настроен
 - [x] MEMORY.md создан, RAG-память работает
-- [ ] Tool profile = full, browser включён
-- [ ] n8n (Railway) подключён
+- [x] Tool profile = full
+- [x] GitHub доступ (gh CLI, Kowkapro)
+- [x] Browser-инструмент (Playwright)
+- [ ] n8n через MCP подключён
 - [ ] Субагент n8n-оператор создан
-- [ ] ClawHub скиллы выбраны и установлены
+- [~] ClawHub скиллы установлены (но не подхватываются ботом — нужно разобраться)

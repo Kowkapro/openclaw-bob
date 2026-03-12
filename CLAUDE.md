@@ -22,12 +22,12 @@ RULE: When discovering a bug/gotcha, add it to KNOWN ISSUES below.
 
 ## PROJECT CONTEXT
 - Project: OpenClaw — personal AI assistant in Telegram (bot name: "Боб")
-- Hosting: Beget VPS, Moscow, Ubuntu 24.04 LTS, 2GB RAM, 10GB SSD
-- LLM: DeepSeek V3.2 Exp via polza.ai (OpenAI-compatible), model `deepseek/deepseek-v3.2-exp`
+- Hosting: Beget VPS, Moscow, Ubuntu 24.04 LTS, 6GB RAM, 10GB SSD
+- LLM: Qwen Flash via polza.ai (OpenAI-compatible), model `qwen/qwen3.5-flash-02-23`
 - API Base URL: `https://polza.ai/api/v1`
 - Channel: Telegram (primary), bot: @botclawAi_BOT
 - Runtime: Node.js v22.22.1
-- OpenClaw: v2026.3.8
+- OpenClaw: v2026.3.11
 - Process manager: nohup (systemd user services unavailable on this server)
 - Firewall: UFW (ports: 22, 80, 443)
 
