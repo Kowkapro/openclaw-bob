@@ -1,0 +1,948 @@
+{
+    "data":  [
+                 {
+                     "id":  "ai21/jamba-large-1.7",
+                     "name":  "AI21: Jamba Large 1.7",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617379,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  256000,
+                                          "max_completion_tokens":  4096,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "175.55540000",
+                                                          "completion_per_million":  "702.22160000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "response_format",
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "stop",
+                                                                       "tools",
+                                                                       "tool_choice"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "aion-labs/aion-1.0",
+                     "name":  "AionLabs: Aion-1.0",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617379,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  131072,
+                                          "max_completion_tokens":  32768,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "351.11080000",
+                                                          "completion_per_million":  "702.22160000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "reasoning",
+                                                                       "include_reasoning",
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "aion-labs/aion-1.0-mini",
+                     "name":  "AionLabs: Aion-1.0-Mini",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617379,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  131072,
+                                          "max_completion_tokens":  32768,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "61.44439000",
+                                                          "completion_per_million":  "122.88878000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "reasoning",
+                                                                       "include_reasoning",
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "aion-labs/aion-2.0",
+                     "name":  "AionLabs: Aion-2.0",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1772539627,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  131072,
+                                          "max_completion_tokens":  32768,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "70.22216000",
+                                                          "completion_per_million":  "140.44432000",
+                                                          "input_cache_read_per_million":  "17.55554000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "reasoning",
+                                                                       "include_reasoning",
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "aion-labs/aion-rp-llama-3.1-8b",
+                     "name":  "AionLabs: Aion-RP 1.0 (8B)",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617379,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  32768,
+                                          "max_completion_tokens":  32768,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "70.22216000",
+                                                          "completion_per_million":  "140.44432000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "alfredpros/codellama-7b-instruct-solidity",
+                     "name":  "AlfredPros: CodeLLaMa 7B Instruct Solidity",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617380,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  "alpaca"
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  4096,
+                                          "max_completion_tokens":  4096,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "70.22216000",
+                                                          "completion_per_million":  "105.33324000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "stop",
+                                                                       "frequency_penalty",
+                                                                       "presence_penalty",
+                                                                       "repetition_penalty",
+                                                                       "top_k",
+                                                                       "min_p",
+                                                                       "seed"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "allenai/molmo-2-8b",
+                     "name":  "AllenAI: Molmo2 8B",
+                     "type":  "chat",
+                     "short_description":  "Предназначена для анализа изображений и видео, ассоциации с текстом. Использует SigLIP 2 для лучшего визуального понимания.",
+                     "created":  1772542605,
+                     "architecture":  {
+                                          "modality":  "text+image+video-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text",
+                                                                   "image",
+                                                                   "video"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  36864,
+                                          "max_completion_tokens":  36864,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "17.55554000",
+                                                          "completion_per_million":  "17.55554000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "frequency_penalty",
+                                                                       "presence_penalty",
+                                                                       "repetition_penalty",
+                                                                       "seed",
+                                                                       "stop",
+                                                                       "top_k",
+                                                                       "logit_bias"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "allenai/olmo-2-0325-32b-instruct",
+                     "name":  "AllenAI: Olmo 2 32B Instruct",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617380,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  128000,
+                                          "max_completion_tokens":  null,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "4.38888500",
+                                                          "completion_per_million":  "17.55554000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "allenai/olmo-3.1-32b-think",
+                     "name":  "AllenAI: Olmo 3 32B Think",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617380,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  65536,
+                                          "max_completion_tokens":  65536,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "13.16665500",
+                                                          "completion_per_million":  "43.88885000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "reasoning",
+                                                                       "include_reasoning",
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "frequency_penalty",
+                                                                       "presence_penalty",
+                                                                       "repetition_penalty",
+                                                                       "seed",
+                                                                       "stop",
+                                                                       "top_k",
+                                                                       "logit_bias",
+                                                                       "structured_outputs",
+                                                                       "response_format"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  0.6,
+                                                                     "top_p":  0.95,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "allenai/olmo-3-32b-think",
+                     "name":  "AllenAI: Olmo 3 32B Think",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617380,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  65536,
+                                          "max_completion_tokens":  65536,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "13.16665500",
+                                                          "completion_per_million":  "43.88885000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "reasoning",
+                                                                       "include_reasoning",
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "frequency_penalty",
+                                                                       "presence_penalty",
+                                                                       "repetition_penalty",
+                                                                       "seed",
+                                                                       "stop",
+                                                                       "top_k",
+                                                                       "logit_bias",
+                                                                       "structured_outputs",
+                                                                       "response_format"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  0.6,
+                                                                     "top_p":  0.95,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "allenai/olmo-3-7b-instruct",
+                     "name":  "AllenAI: Olmo 3 7B Instruct",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617380,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  65536,
+                                          "max_completion_tokens":  65536,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "8.77777000",
+                                                          "completion_per_million":  "17.55554000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "frequency_penalty",
+                                                                       "presence_penalty",
+                                                                       "repetition_penalty",
+                                                                       "seed",
+                                                                       "stop",
+                                                                       "top_k",
+                                                                       "logit_bias",
+                                                                       "response_format",
+                                                                       "structured_outputs"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  0.6,
+                                                                     "top_p":  0.95,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "allenai/olmo-3-7b-think",
+                     "name":  "AllenAI: Olmo 3 7B Think",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617380,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  65536,
+                                          "max_completion_tokens":  65536,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "10.53332400",
+                                                          "completion_per_million":  "17.55554000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "reasoning",
+                                                                       "include_reasoning",
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "frequency_penalty",
+                                                                       "presence_penalty",
+                                                                       "repetition_penalty",
+                                                                       "seed",
+                                                                       "stop",
+                                                                       "top_k",
+                                                                       "logit_bias",
+                                                                       "structured_outputs",
+                                                                       "response_format"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  0.6,
+                                                                     "top_p":  0.95,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "allenai/olmo-3.1-32b-instruct",
+                     "name":  "AllenAI: Olmo 3.1 32B Instruct",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617380,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Other",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  65536,
+                                          "max_completion_tokens":  null,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "17.55554000",
+                                                          "completion_per_million":  "52.66662000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "stop",
+                                                                       "frequency_penalty",
+                                                                       "presence_penalty",
+                                                                       "repetition_penalty",
+                                                                       "top_k",
+                                                                       "seed",
+                                                                       "min_p",
+                                                                       "response_format",
+                                                                       "tools",
+                                                                       "tool_choice",
+                                                                       "structured_outputs"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  0.6,
+                                                                     "top_p":  0.95,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "amazon/nova-2-lite-v1",
+                     "name":  "Amazon: Nova 2 Lite",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617381,
+                     "architecture":  {
+                                          "modality":  "text+image+file+video-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text",
+                                                                   "image",
+                                                                   "video",
+                                                                   "file"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Nova",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  1000000,
+                                          "max_completion_tokens":  65535,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "26.33331000",
+                                                          "completion_per_million":  "219.44425000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "reasoning",
+                                                                       "include_reasoning",
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "top_k",
+                                                                       "stop",
+                                                                       "tool_choice",
+                                                                       "tools"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "amazon/nova-lite-v1",
+                     "name":  "Amazon: Nova Lite 1.0",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617381,
+                     "architecture":  {
+                                          "modality":  "text+image-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text",
+                                                                   "image"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Nova",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  300000,
+                                          "max_completion_tokens":  5120,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "5.26666200",
+                                                          "completion_per_million":  "21.06664800",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "top_k",
+                                                                       "stop",
+                                                                       "tools"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "amazon/nova-micro-v1",
+                     "name":  "Amazon: Nova Micro 1.0",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617381,
+                     "architecture":  {
+                                          "modality":  "text-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Nova",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  128000,
+                                          "max_completion_tokens":  5120,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "3.07221950",
+                                                          "completion_per_million":  "12.28887800",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "top_k",
+                                                                       "stop",
+                                                                       "tools"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "amazon/nova-premier-v1",
+                     "name":  "Amazon: Nova Premier 1.0",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617381,
+                     "architecture":  {
+                                          "modality":  "text+image-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text",
+                                                                   "image"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Nova",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  1000000,
+                                          "max_completion_tokens":  32000,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "219.44425000",
+                                                          "completion_per_million":  "1097.22125000",
+                                                          "input_cache_read_per_million":  "54.86106250",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "top_k",
+                                                                       "stop",
+                                                                       "tools"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "amazon/nova-pro-v1",
+                     "name":  "Amazon: Nova Pro 1.0",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617381,
+                     "architecture":  {
+                                          "modality":  "text+image-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text",
+                                                                   "image"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Nova",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  300000,
+                                          "max_completion_tokens":  5120,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "70.22216000",
+                                                          "completion_per_million":  "280.88864000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "top_k",
+                                                                       "stop",
+                                                                       "tools"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "anthropic/claude-3-haiku",
+                     "name":  "Anthropic: Claude 3 Haiku",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617382,
+                     "architecture":  {
+                                          "modality":  "text+image-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text",
+                                                                   "image"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Claude",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  200000,
+                                          "max_completion_tokens":  4096,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "21.94442500",
+                                                          "completion_per_million":  "109.72212500",
+                                                          "input_cache_read_per_million":  "2.63333100",
+                                                          "input_cache_write_per_million":  "26.33331000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "top_k",
+                                                                       "stop",
+                                                                       "tools",
+                                                                       "tool_choice"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 },
+                 {
+                     "id":  "anthropic/claude-3.5-haiku",
+                     "name":  "Anthropic: Claude 3.5 Haiku",
+                     "type":  "chat",
+                     "short_description":  null,
+                     "created":  1769617382,
+                     "architecture":  {
+                                          "modality":  "text+image-\u003etext",
+                                          "input_modalities":  [
+                                                                   "text",
+                                                                   "image"
+                                                               ],
+                                          "output_modalities":  [
+                                                                    "text"
+                                                                ],
+                                          "tokenizer":  "Claude",
+                                          "instruct_type":  null
+                                      },
+                     "top_provider":  {
+                                          "is_moderated":  false,
+                                          "context_length":  200000,
+                                          "max_completion_tokens":  8192,
+                                          "pricing":  {
+                                                          "prompt_per_million":  "70.22216000",
+                                                          "completion_per_million":  "351.11080000",
+                                                          "web_search_per_thousand":  "877.77700000",
+                                                          "input_cache_read_per_million":  "7.02221600",
+                                                          "input_cache_write_per_million":  "87.77770000",
+                                                          "currency":  "RUB"
+                                                      },
+                                          "supported_parameters":  [
+                                                                       "max_tokens",
+                                                                       "temperature",
+                                                                       "top_p",
+                                                                       "top_k",
+                                                                       "stop",
+                                                                       "tools",
+                                                                       "tool_choice"
+                                                                   ],
+                                          "default_parameters":  {
+                                                                     "temperature":  null,
+                                                                     "top_p":  null,
+                                                                     "frequency_penalty":  null
+                                                                 }
+                                      },
+                     "endpoints":  [
+                                       "/api/v1/chat/completions"
+                                   ]
+                 }
+             ],
+    "meta":  {
+                 "page":  1,
+                 "limit":  20,
+                 "total":  365,
+                 "totalPages":  19
+             }
+}
