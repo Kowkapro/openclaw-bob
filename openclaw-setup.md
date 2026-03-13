@@ -227,8 +227,9 @@
   - [x] **Self-Improving Agent** — установлен в workspace/skills/self-improving-agent (замена Capability Evolver)
   - ❌ Capability Evolver — заблокирован clawhub как malware
   - ❌ Tavily — заблокирован VirusTotal, Brave API платный
-- [ ] Проверить каждый скилл в диалоге с Бобом (clawhub-скиллы не видны Бобу — возможно несовместимы с v2026.3.11)
-- [ ] При необходимости — доустановить по категориям: `clawhub search ""`
+- [x] Доустановлены скиллы (2026-03-13): find-skills, claude-code, proactive-agent, skill-vetter, n8n
+- [x] Все скиллы протестированы в диалоге с Бобом (14/59 ready, n8n — missing без сервера)
+- [x] Проблема видимости скиллов решена — clawhub-скиллы работают с v2026.3.11
 
 ### Блок 9 — Мультимодальность
 - [ ] **Голосовые сообщения (STT)**: подключить Whisper через polza.ai API
@@ -307,6 +308,8 @@ systemctl status openclaw
 - [x] Google-аккаунт авторизован (Firefox-профиль скопирован для openclaw)
 - [x] SSH-ключ настроен (Claude Code может подключаться к серверу напрямую)
 - [x] VNC (Xvfb + x11vnc + fluxbox) — установлен, порт 5900 закрыт после использования
+- [x] ClawHub скиллы установлены и работают (14/59 ready)
+- [x] DesignerBot v2 работает (@BobDesignAgentbot) — генерация + редактирование
 - [ ] n8n через MCP подключён
 - [ ] Субагент n8n-оператор создан
-- [~] ClawHub скиллы установлены (но не подхватываются ботом — несовместимы с v2026.3.11)
+- [ ] Мультимодальность (STT, Vision, видео)
