@@ -87,3 +87,7 @@ RULE: When discovering a bug/gotcha, add it to KNOWN ISSUES below.
 - Snap packages (chromium-browser, firefox) don't work with Xvfb — use portable binaries
 - Playwright Chromium is headless-only, no GUI in VNC — use /opt/firefox/ for GUI
 - ClawHub skills installed in workspace/skills/ but NOT recognized by OpenClaw v2026.3.11
+- Agent-browser requires `--no-sandbox` on VPS (config: `~/.agent-browser/config.json`)
+- Agent-browser daemon can hang — clean `~/.agent-browser/default.pid` and `default.sock`, restart gateway
+- QMD installed via bun from GitHub — rebuild after update: `bun add -d @types/node && bun run build`
+- Symlinks in `/usr/local/bin/`: agent-browser, bun, qmd — needed for gateway PATH access

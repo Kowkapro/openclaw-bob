@@ -198,6 +198,12 @@
 ### Блок 7 — Инструменты и расширение
 - [x] Переключить tool profile с `coding` на `full` в openclaw.json
 - [x] Включить browser-инструмент (Playwright) — установлен для root и openclaw
+- [x] **QMD memory backend** — установлен (Bun 1.3.10 + QMD 2.0.1), `memory.backend = "qmd"` в openclaw.json
+- [x] **Agent Browser** — установлен (v0.20.0 + Chrome 146), заменяет Playwright+Chromium
+  - Конфиг: `~/.agent-browser/config.json` (`--no-sandbox`)
+  - Symlinks: `/usr/local/bin/agent-browser`, `/usr/local/bin/bun`, `/usr/local/bin/qmd`
+  - SOUL.md обновлён — Боб использует agent-browser вместо встроенного browser tool
+  - SKILL.md: `~/.openclaw/skills/agent-browser/SKILL.md`
 - [ ] **Подключить n8n через MCP** (не REST API — более надёжная архитектура):
   - Установить `n8n-mcp` пакет на сервер: `npm i -g n8n-mcp`
   - Получить n8n API Key: Railway n8n → Settings → n8n API → Create API key
@@ -304,7 +310,8 @@ systemctl status openclaw
 - [x] MEMORY.md создан, RAG-память работает
 - [x] Tool profile = full
 - [x] GitHub доступ (gh CLI, Kowkapro)
-- [x] Browser-инструмент (Playwright + Firefox)
+- [x] Browser-инструмент (Agent Browser v0.20.0 + Chrome 146, --no-sandbox)
+- [x] QMD memory backend (Bun 1.3.10 + QMD 2.0.1)
 - [x] Google-аккаунт авторизован (Firefox-профиль скопирован для openclaw)
 - [x] SSH-ключ настроен (Claude Code может подключаться к серверу напрямую)
 - [x] VNC (Xvfb + x11vnc + fluxbox) — установлен, порт 5900 закрыт после использования
